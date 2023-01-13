@@ -113,3 +113,7 @@ exports
 dist
 build
 .strapi-updater.json
+volumes/db/data
+volumes/storage
+.env
+test.http
