@@ -22,20 +22,6 @@ services:
   #         condition: service_healthy
   #     - cms
 
-  app:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
-    container_name: app
-    restart: always
-    volumes:
-      - ./app:/app
-    ports:
-      - 3000:3000
-    depends_on:
-      db:
-        condition: service_healthy
-
   cms:
     container_name: cms
     build: ./cms
