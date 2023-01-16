@@ -77,7 +77,7 @@ services:
     container_name: pgadmin
     image: dpage/pgadmin4
     ports:
-      - 5432:80
+      - 5433:80
     environment:
       PGADMIN_DEFAULT_EMAIL: ken@gizzar.com
       PGADMIN_DEFAULT_PASSWORD: password
