@@ -72,3 +72,13 @@ services:
     volumes:
       - ./volumes/db/data:/var/lib/postgresql/data
 
+  pgadmin:
+    restart: unless-stopped
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    ports:
+      - 5432:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ken@gizzar.com
+      PGADMIN_DEFAULT_PASSWORD: password
+

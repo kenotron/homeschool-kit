@@ -15,6 +15,9 @@ handler
   })
   .post((req, res) => {
     const { username, password, name } = req.body
+
+console.log(username, password, name);
+
     createUser(req, { username, password, name })
     res.status(200).json({ success: true, message: 'created new user' })
   })

@@ -29,7 +29,9 @@
     "uuidv4": "6.2.5"
   },
   "devDependencies": {
-    "prisma": "4.8.1"
+    "@types/node": "^18.11.18",
+    "prisma": "4.8.1",
+    "ts-node": "^10.9.1"
   },
   "packageManager": "yarn@3.3.1"
 }
