@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
-import Navbar from '../components/Navbar'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "../styles/Home.module.css";
+import { NavBar } from "../components/Navbar";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
+      <NavBar />
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
@@ -28,7 +28,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By{' '}
+              By{" "}
               <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
@@ -121,5 +121,5 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }
