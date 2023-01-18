@@ -34,6 +34,7 @@ services:
       DATABASE_NAME: ${POSTGRES_DB}
       DATABASE_USERNAME: ${POSTGRES_USER}
       DATABASE_PORT: ${POSTGRES_PORT}
+      DATABASE_SCHEMA: cms
       JWT_SECRET: ${JWT_SECRET}
       ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
       DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
@@ -71,6 +72,32 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - ./volumes/db/data:/var/lib/postgresql/data
+      - ./initdb/create_schema_app.sql:/docker-entrypoint-initdb.d/create_schema_app.sql
+      - ./initdb/create_schema_auth.sql:/docker-entrypoint-initdb.d/create_schema_auth.sql
+      - ./initdb/create_schema_cms.sql:/docker-entrypoint-initdb.d/create_schema_cms.sql
+
+  fusionauth:
+    container_name: auth
+    image: fusionauth/fusionauth-app:latest
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/postgres?currentSchema=auth
+      DATABASE_ROOT_USERNAME: ${POSTGRES_USER}
+      DATABASE_ROOT_PASSWORD: ${POSTGRES_PASSWORD}
+      DATABASE_USERNAME: ${POSTGRES_USER}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
+      FUSIONAUTH_APP_MEMORY: ${FUSIONAUTH_APP_MEMORY}
+      FUSIONAUTH_APP_RUNTIME_MODE: development
+      FUSIONAUTH_APP_URL: http://fusionauth:9011
+      # SEARCH_SERVERS: http://search:9200
+      SEARCH_TYPE: database
+    restart: unless-stopped
+    ports:
+      - 9011:9011
+    volumes:
+      - fusionauth_config:/usr/local/fusionauth/config
 
   pgadmin:
     restart: unless-stopped
@@ -82,3 +109,5 @@ services:
       PGADMIN_DEFAULT_EMAIL: ken@gizzar.com
       PGADMIN_DEFAULT_PASSWORD: password
 
+volumes:
+  fusionauth_config:
