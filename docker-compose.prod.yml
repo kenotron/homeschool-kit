@@ -1,5 +1,27 @@
 version: "3.8"
 services:
+  # app: 
+  #   container_name: app
+  #   build: ./app
+  #   image: app:latest
+  #   restart: unless-stopped
+  #   environment:
+  #     DATABASE_CLIENT: ${DATABASE_CLIENT}
+  #     DATABASE_HOST: ${POSTGRES_HOST}
+  #     DATABASE_NAME: ${POSTGRES_DB}
+  #     DATABASE_USERNAME: ${POSTGRES_USER}
+  #     DATABASE_PORT: ${POSTGRES_PORT}
+  #     DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
+  #     NODE_ENV: ${STRAPI_NODE_ENV}
+  #     STRAPI_HOST: ${STRAPI_HOST}
+  #     STRAPI_PORT: ${STRAPI_PORT}
+  #   ports:
+  #     - 3000:3000
+  #   depends_on:
+  #     - db: # Disable this if you are using an external Postgres database
+  #         condition: service_healthy
+  #     - cms
+
   cms:
     container_name: cms
     build: ./cms
