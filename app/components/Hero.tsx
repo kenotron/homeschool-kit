@@ -17,7 +17,7 @@ const HeroButton = (props: any) => {
 export const Hero = () => {
   return (
     <div
-      className="h-[693] bg-cover"
+      className="h-[550] bg-cover"
       style={{
         backgroundImage: `url("/hero-bg.jpg")`,
       }}

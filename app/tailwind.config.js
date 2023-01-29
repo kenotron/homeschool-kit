@@ -6,6 +6,7 @@ let containerScreens = Object.assign({}, defaultTheme.screens)
 
 // Delete the 2xl breakpoint from the object
 delete containerScreens['2xl']
+delete containerScreens['xl']
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
