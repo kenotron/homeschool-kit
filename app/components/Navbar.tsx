@@ -1,3 +1,17 @@
+async function getData() {
+  const res = await fetch("http://localhost:5333/api/nav-links");
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 const NavList = (props: any) => {
   return (
     <ul className="mt-4 flex flex-col  p-4 dark:border-gray-100 md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
@@ -17,7 +31,11 @@ const NavItem = (props: any) => {
   );
 };
 
-export const NavBar = () => {
+export const NavBar = async () => {
+  const navLinks = await getData();
+
+  console.log(navLinks);
+
   return (
     <nav className="bg-blue-900 px-2 py-2.5 drop-shadow-2xl dark:bg-gray-900 sm:px-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
