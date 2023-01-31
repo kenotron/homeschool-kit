@@ -1,5 +1,5 @@
 async function getData() {
-  const res = await fetch("http://localhost:5333/api/nav-links");
+  const res = await fetch("http://localhost:5333/api/navigation?populate=*");
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -32,9 +32,8 @@ const NavItem = (props: any) => {
 };
 
 export const NavBar = async () => {
-  const navLinks = await getData();
-
-  console.log(navLinks);
+  const data = (await getData())?.data.attributes;
+  const links = data.links.data;
 
   return (
     <nav className="bg-blue-900 px-2 py-2.5 drop-shadow-2xl dark:bg-gray-900 sm:px-4">
@@ -68,11 +67,13 @@ export const NavBar = async () => {
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <NavList>
-            <NavItem href="#">Registration</NavItem>
-            <NavItem href="#">Calendar</NavItem>
-            <NavItem href="#">Courses</NavItem>
-            <NavItem href="/api/auth/signin">Portal</NavItem>
-            <NavItem href="#">Donate</NavItem>
+            {links.map((linkData: any) => {
+              return (
+                <NavItem key={linkData.id} href={linkData.attributes.url}>
+                  {linkData.attributes.label}
+                </NavItem>
+              );
+            })}
           </NavList>
         </div>
       </div>

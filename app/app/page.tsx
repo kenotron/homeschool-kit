@@ -19,10 +19,9 @@ async function getData() {
 export default async function Page() {
   const data = (await getData())?.data.attributes;
 
-  console.log(data);
-
   return (
     <div>
+      {/* @ts-expect-error Server Component*/}
       <NavBar />
       <Hero heading={data.hero_heading} buttonText={data.hero_button_text} />
       <Features />
