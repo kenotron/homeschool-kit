@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feature_items",
+  "info": {
+    "singularName": "feature-item",
+    "pluralName": "feature-items",
+    "displayName": "Feature Item",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "action_link": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::link.link"
+    }
+  }
+}

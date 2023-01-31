@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * nav-link controller
+ * navigation controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::nav-link.nav-link');
+module.exports = createCoreController('api::navigation.navigation');

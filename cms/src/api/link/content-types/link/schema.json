@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "nav_links",
+  "collectionName": "links",
   "info": {
-    "singularName": "nav-link",
-    "pluralName": "nav-links",
-    "displayName": "Nav Link"
+    "singularName": "link",
+    "pluralName": "links",
+    "displayName": "Link"
   },
   "options": {
     "draftAndPublish": true
