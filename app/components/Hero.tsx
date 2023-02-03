@@ -1,6 +1,6 @@
 const Heading = (props: any) => {
   return (
-    <div className="font-display mb-4 max-w-[80%] text-[4rem] leading-tight">
+    <div className="font-display mt-8 mb-4 max-w-[80%] text-[3rem] font-semibold leading-tight">
       {props.children}
     </div>
   );
@@ -16,8 +16,8 @@ const HeroButton = (props: any) => {
 
 export const Hero = (props: any) => {
   return (
-    <div
-      className="h-[550] bg-cover"
+    <section
+      className="h-[500] bg-cover"
       style={{
         backgroundImage: `url("/hero-bg.jpg")`,
       }}
@@ -28,6 +28,6 @@ export const Hero = (props: any) => {
           <HeroButton>{props.buttonText}</HeroButton>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

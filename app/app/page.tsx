@@ -1,5 +1,6 @@
 import { Features } from "../components/Features";
 import { Hero } from "../components/Hero";
+import { LatestUpdates } from "../components/LatestUpdates";
 import { NavBar } from "../components/NavBar";
 
 async function getData() {
@@ -25,6 +26,7 @@ export default async function Page() {
       <NavBar />
       <Hero heading={data.hero_heading} buttonText={data.hero_button_text} />
       <Features />
+      <LatestUpdates />
     </div>
   );
 }

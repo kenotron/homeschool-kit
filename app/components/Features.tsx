@@ -3,15 +3,18 @@ const FeatureCTA = (props: any) => {
 };
 
 const FeatureHeading = (props: any) => {
+  const colors = [`bg-red-600`, `bg-red-800`, `bg-red-900`];
   return (
-    <div className="bg-red-700 py-4 px-4 text-lg text-white">
+    <div className={`text-md py-4 px-4 text-white ${colors[props.index]}`}>
       {props.children}
     </div>
   );
 };
 
 const FeatureContent = (props: any) => {
-  return <div className="p-4 text-sm">{props.children}</div>;
+  return (
+    <div className="mr-4 mt-4 text-xs text-gray-600">{props.children}</div>
+  );
 };
 
 const FeatureImage = (props: any) => {
@@ -28,8 +31,8 @@ const FeatureItem = (props: any) => {
 
 export const Features = () => {
   return (
-    <div className="container isolate mx-auto mt-[-50] flex justify-between gap-8">
-      <FeatureItem>
+    <section className="container isolate mx-auto mt-[-50] flex justify-between">
+      <FeatureItem index={1}>
         <FeatureHeading>About Legacy HC</FeatureHeading>
         <FeatureImage></FeatureImage>
         <FeatureContent>
@@ -38,7 +41,7 @@ export const Features = () => {
           <a href="#">Statement of faith</a>
         </FeatureContent>
       </FeatureItem>
-      <FeatureItem>
+      <FeatureItem index={2}>
         <FeatureHeading>Student Life</FeatureHeading>
         <FeatureImage></FeatureImage>
         <FeatureContent>
@@ -46,7 +49,7 @@ export const Features = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </FeatureContent>
       </FeatureItem>
-      <FeatureItem>
+      <FeatureItem index={3}>
         <FeatureHeading>Courses</FeatureHeading>
         <FeatureImage></FeatureImage>
         <FeatureContent>
@@ -54,6 +57,6 @@ export const Features = () => {
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </FeatureContent>
       </FeatureItem>
-    </div>
+    </section>
   );
 };
